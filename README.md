@@ -3,9 +3,6 @@
 > Ferramenta para freelancers descobrirem quanto cobrar em um projeto
 > com base nas horas trabalhadas, custos reais e margem de lucro desejada —
 > sem depender de planilha ou cobrar "no feeling".
-
-🔗 **[Ver projeto ao vivo](#)** · 📁 **[Ver código](#)**
-
 ---
 
 ## O problema que resolve
@@ -17,14 +14,6 @@ Essa ferramenta resolve isso calculando automaticamente:
 
 - O **valor mínimo** que você pode cobrar sem sair no negativo
 - O **valor sugerido** com a margem de lucro que você escolher
-
----
-
-## Demonstração
-
-![Demo do projeto](./assets/screenshot.png)
-
----
 
 ## Funcionalidades
 
