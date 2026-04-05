@@ -100,4 +100,4 @@ como estudante que ainda não sabe exatamente quanto cobrar pelo seu trabalho.
 
 ---
 
-Desenvolvido por **[Seu Nome](#)** · [LinkedIn](#) · [GitHub](#)
+Desenvolvido por **[Lorran Daudosso](#)** · [https://www.linkedin.com/in/lorran-daudosso/](#) · [https://github.com/daudossolorran](#)
