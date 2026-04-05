@@ -52,16 +52,7 @@ Essa ferramenta resolve isso calculando automaticamente:
 ## Como rodar localmente
 ```bash
 # 1. Clone o repositório
-git clone https://github.com/seu-usuario/calculadora-orcamento.git
-
-# 2. Entre na pasta
-cd calculadora-orcamento
-
-# 3. Abra o arquivo no navegador
-# Não precisa instalar nada — só abrir o index.html
-```
-
----
+ https://daudossolorran.github.io/cauculadora-freelancer/
 
 ## Estrutura do projeto
 alculadora-orcamento/
