@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Orçamento Freelancer</title>
+    <link rel="stylesheet" href="style.css">
+<body>
+    <div class="wrapper">
+        <header>
+            <h1>Calculadora de<br>orçamento freelancer</h1>
+            <p>Descubra o valor mínimo e o valor ideal para cobrar no seu próximo projeto — com base nos seus custos reais.</p>
+        </header>
+
+        <main>
+            <div class="grid">
+
+                <!-- ======= SEÇÃO 1: HORAS E VALOR ======= -->
+                <section class="card">
+                    <h2>Tempo e valor/hora</h2>
+
+                    <div class="campo">
+                        <label for="horas">Horas estimadas no projeto</label>
+                        <input type="number" id="horas" placeholder="Ex: 40" min="1" />
+                    </div>
+
+                    <div class="campo">
+                        <label for="valor-hora">Seu valor por hora (R$)</label>
+                        <input type="number" id="valor-hora" placeholder="Ex: 80" min="1" />
+                    </div>
+
+                    <div class="campo">
+                        <label for="margem">Margem de lucro desejada (%)</label>
+                        <select id="margem">
+                            <option value="10">10% — conservador</option>
+                            <option value="20" selected>20% — equilibrado</option>
+                            <option value="30">30% — recomendado</option>
+                            <option value="40">40% — premium</option>
+                            <option value="50">50% — alto valor</option>
+                        </select>
+                    </div>
+                </section>
+
+                <!-- ======= SEÇÃO 2: CUSTOS EXTRAS ======= -->
+                <section class="card">
+                    <h2>Custos extras do projeto</h2>
+
+                    <div style="display:flex; gap:8px; margin-bottom: 0.5rem;">
+                        <div style="flex:1">
+                            <label for="custo-nome">Descrição</label>
+                            <input type="text" id="custo-nome" placeholder="Ex: Hospedagem"
+                                style="width:100%;padding:0.6rem 0.75rem;font-family:'DM Sans',sans-serif;
+                                font-size:0.95rem;background:var(--bg);border:1px solid var(--border);
+                                border-radius:var(--radius);outline:none;color:var(--ink);" />
+                        </div>
+                        <div style="width:110px">
+                            <label for="custo-valor">Valor (R$)</label>
+                            <input type="number" id="custo-valor" placeholder="0" min="0" />
+                        </div>
+                    </div>
+
+                    <button class="btn" onclick="adicionarCusto()">+ Adicionar custo</button>
+
+                    <ul id="lista-custos"></ul>
+
+                    <p id="total-custos-label"
+                         style="font-size:0.82rem;color:var(--ink-muted);text-align:right;display:none">
+                        Total de custos extras: <strong id="total-custos-txt">R$ 0</strong>
+                    </p>
+                </section>
+
+                <!-- ======= RESULTADO (ocupa 2 colunas) ======= -->
+                <section class="card card-resultado" id="resultado">
+
+                    <h2 style="color:rgba(255,255,255,0.4)">Seu orçamento</h2>
+
+                    <div class="resultado-grid">
+                        <div class="metrica">
+                            <div class="metrica-label">Custo base</div>
+                            <div class="metrica-valor" id="res-custo-base">—</div>
+                        </div>
+                        <div class="metrica">
+                            <div class="metrica-label">Valor mínimo</div>
+                            <div class="metrica-valor" id="res-minimo">—</div>
+                        </div>
+                        <div class="metrica">
+                            <div class="metrica-label">Valor sugerido</div>
+                            <div class="metrica-valor destaque" id="res-sugerido">—</div>
+                        </div>
+                    </div>
+
+                    <div class="barra-wrap">
+                        <div class="barra-label">
+                            <span>Custo</span>
+                            <span id="barra-pct">Lucro</span>
+                        </div>
+                        <div class="barra-track">
+                            <div class="barra-fill" id="barra-fill"></div>
+                        </div>
+                    </div>
+
+                    <pre id="resumo-texto"></pre>
+
+                    <div class="resultado-acoes">
+                        <button class="btn btn-outline-white" onclick="verResumo()">Ver resumo</button>
+                        <button class="btn btn-outline-white" onclick="copiarResumo()">Copiar texto</button>
+                        <button class="btn btn-outline-white" onclick="resetar()">Novo orçamento</button>
+                    </div>
+
+                </section>
+
+            </div>
+
+            <button class="btn btn-primary" onclick="calcular()">
+                Calcular orçamento
+            </button>
+
+        </main>
+
+    </div>
+
+    <div id="toast">Copiado para a área de transferência!</div>
+    <script src="script.js"></script>
+</body>
+</html>

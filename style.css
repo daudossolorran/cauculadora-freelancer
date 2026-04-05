@@ -1,0 +1,344 @@
+ :root {
+      --bg:         #f5f2eb;   /* bege papel — tom principal */
+      --surface:    #ffffff;
+      --ink:        #1a1814;   /* quase preto */
+      --ink-muted:  #7a7670;
+      --accent:     #1a1814;   /* acento escuro */
+      --accent-alt: #c8a96e;   /* dourado suave */
+      --success:    #2d6a4f;
+      --danger:     #c1440e;
+      --border:     #ddd9d0;
+      --radius:     12px;
+      --radius-lg:  20px;
+    }
+ 
+    /* =============================================
+       RESET + BASE
+    ============================================= */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+ 
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100dvh;
+      padding: 2rem 1rem 4rem;
+    }
+ 
+    /* =============================================
+       TIPOGRAFIA
+       font-family: 'Syne' para títulos
+       font-family: 'DM Sans' para corpo
+    ============================================= */
+    h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.6rem, 4vw, 2.4rem); /* clamp: tamanho responsivo */
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+ 
+    h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin-bottom: 1rem;
+    }
+ 
+    label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--ink-muted);
+      margin-bottom: 4px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+ 
+    /* =============================================
+       LAYOUT GERAL
+       max-width + margin auto centraliza o conteúdo.
+       display: grid cria duas colunas lado a lado.
+    ============================================= */
+    .wrapper {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+ 
+    header {
+      margin-bottom: 2.5rem;
+    }
+ 
+    header p {
+      color: var(--ink-muted);
+      margin-top: 0.5rem;
+      font-size: 0.95rem;
+      max-width: 480px;
+      line-height: 1.6;
+    }
+ 
+    /* Grid de 2 colunas — em telas pequenas vira 1 coluna */
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      align-items: start;
+    }
+ 
+    @media (max-width: 600px) {
+      .grid { grid-template-columns: 1fr; }
+    }
+ 
+    /* =============================================
+       CARDS (superfícies brancas)
+    ============================================= */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+    }
+ 
+    /* Card de resultado ocupa largura total */
+    .card-resultado {
+      grid-column: 1 / -1; /* ocupa todas as colunas do grid */
+      background: var(--ink);
+      color: #fff;
+      border-color: transparent;
+    }
+ 
+    /* =============================================
+       CAMPOS DE FORMULÁRIO
+       Usamos <input> e <select> nativos estilizados.
+       Nunca use <div> para simular um campo.
+    ============================================= */
+    .campo {
+      margin-bottom: 1rem;
+    }
+ 
+    .campo:last-child { margin-bottom: 0; }
+ 
+    input[type="number"],
+    select {
+      width: 100%;
+      padding: 0.6rem 0.75rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      color: var(--ink);
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      outline: none;
+      transition: border-color 0.15s;
+      appearance: none;
+      /* remove setas padrão no Chrome */
+      -moz-appearance: textfield;
+    }
+ 
+    input[type="number"]::-webkit-outer-spin-button,
+    input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; }
+ 
+    input[type="number"]:focus,
+    select:focus {
+      border-color: var(--accent);
+    }
+ 
+    /* =============================================
+       LISTA DE CUSTOS EXTRAS
+       Os custos são adicionados dinamicamente pelo JS
+       e aparecem nessa lista.
+    ============================================= */
+    #lista-custos {
+      list-style: none;
+      margin: 0.75rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+ 
+    #lista-custos li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--bg);
+      border-radius: 8px;
+      padding: 0.5rem 0.75rem;
+      font-size: 0.9rem;
+    }
+ 
+    #lista-custos li span { color: var(--ink-muted); font-size: 0.8rem; }
+ 
+    /* Botão de remover custo (×) */
+    .btn-remover {
+      border: none;
+      background: none;
+      color: var(--danger);
+      font-size: 1.1rem;
+      cursor: pointer;
+      padding: 0 4px;
+      line-height: 1;
+    }
+ 
+    /* =============================================
+       BOTÕES
+    ============================================= */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 0.6rem 1.1rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+      border-radius: var(--radius);
+      border: 1.5px solid var(--border);
+      background: transparent;
+      color: var(--ink);
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s;
+    }
+ 
+    .btn:hover { background: var(--bg); border-color: var(--ink-muted); }
+    .btn:active { transform: scale(0.97); }
+ 
+    /* Variante primária (preto) */
+    .btn-primary {
+      background: var(--ink);
+      color: #fff;
+      border-color: var(--ink);
+      width: 100%;
+      padding: 0.85rem;
+      font-size: 1rem;
+      border-radius: var(--radius-lg);
+      margin-top: 1.25rem;
+    }
+ 
+    .btn-primary:hover { background: #333; border-color: #333; }
+ 
+    /* =============================================
+       ÁREA DE RESULTADO
+       Oculta até o usuário calcular.
+       display: none → display: block via JS.
+    ============================================= */
+    #resultado {
+      display: none; /* começa escondido */
+    }
+ 
+    .resultado-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+ 
+    @media (max-width: 500px) {
+      .resultado-grid { grid-template-columns: 1fr; }
+    }
+ 
+    .metrica {
+      border-top: 1px solid rgba(255,255,255,0.15);
+      padding-top: 0.75rem;
+    }
+ 
+    .metrica-label {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+ 
+    .metrica-valor {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1;
+    }
+ 
+    .metrica-valor.destaque { color: var(--accent-alt); }
+ 
+    /* Barra de composição do valor */
+    .barra-wrap { margin-top: 1rem; }
+ 
+    .barra-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 6px;
+    }
+ 
+    .barra-track {
+      height: 6px;
+      background: rgba(255,255,255,0.12);
+      border-radius: 99px;
+      overflow: hidden;
+    }
+ 
+    .barra-fill {
+      height: 100%;
+      border-radius: 99px;
+      background: var(--accent-alt);
+      transition: width 0.5s cubic-bezier(.4,0,.2,1);
+      width: 0%;
+    }
+ 
+    /* Resumo em texto para copiar */
+    #resumo-texto {
+      display: none;
+      background: rgba(255,255,255,0.06);
+      border-radius: var(--radius);
+      padding: 1rem;
+      margin-top: 1rem;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.75);
+      white-space: pre-line;
+      line-height: 1.7;
+    }
+ 
+    .resultado-acoes {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-top: 1.25rem;
+    }
+ 
+    .btn-outline-white {
+      background: transparent;
+      border-color: rgba(255,255,255,0.25);
+      color: #fff;
+    }
+ 
+    .btn-outline-white:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.4);
+    }
+ 
+    /* =============================================
+       FEEDBACK TOAST (mensagem de copiado)
+    ============================================= */
+    #toast {
+      position: fixed;
+      bottom: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: var(--success);
+      color: #fff;
+      padding: 0.6rem 1.2rem;
+      border-radius: 99px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      opacity: 0;
+      transition: opacity 0.2s, transform 0.2s;
+      pointer-events: none;
+    }
+ 
+    #toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
