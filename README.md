@@ -1,83 +1,39 @@
-# 💰 Calculadora de Orçamento — Freelancer
+# Calculadora Freelancer
 
-> Ferramenta para freelancers descobrirem quanto cobrar em um projeto
-> com base nas horas trabalhadas, custos reais e margem de lucro desejada —
-> sem depender de planilha ou cobrar "no feeling".
----
+## Descrição
 
-## O problema que resolve
+Este projeto é uma **calculadora interativa desenvolvida em JavaScript** que visa auxiliar freelancers no cálculo de seus honorários. Com uma interface simples e intuitiva, permite estimar o valor de projetos com base em horas trabalhadas, custo por hora e outras variáveis relevantes. É uma ferramenta prática para gerenciar propostas e garantir uma precificação justa.
 
-Freelancers costumam não saber quanto cobrar e acabam em uma de duas situações:
-cobram caro demais e perdem o cliente, ou cobram barato demais e trabalham no prejuízo.
+## Tecnologias Utilizadas
 
-Essa ferramenta resolve isso calculando automaticamente:
+- **JavaScript**: Lógica de programação e interatividade.
+- **HTML**: Estrutura da página web.
+- **CSS**: Estilização e responsividade da interface.
 
-- O **valor mínimo** que você pode cobrar sem sair no negativo
-- O **valor sugerido** com a margem de lucro que você escolher
+## Como Usar
 
-## Funcionalidades
+1.  **Acesse a aplicação**: [Link para a demo ao vivo (se disponível)](https://daudossolorran.github.io/cauculadora-freelancer/ )
+2.  **Insira os dados**: Preencha os campos com as informações do projeto (horas estimadas, valor/hora, etc.).
+3.  **Obtenha o resultado**: A calculadora exibirá o valor total estimado para o projeto.
 
-- Cadastro de horas estimadas e valor por hora
-- Adição de custos extras do projeto (hospedagem, ferramentas, deslocamento etc.)
-- Remoção individual de cada custo extra
-- Cálculo automático do custo base, valor mínimo e valor sugerido com margem
-- Formatação de moeda em Real brasileiro (R$) automática
-- Geração de resumo do orçamento para copiar e enviar ao cliente
-- Layout responsivo — funciona no celular e no desktop
+## Instalação Local (para desenvolvedores)
 
----
+Para rodar o projeto localmente, siga os passos abaixo:
 
-## Tecnologias utilizadas
+1.  **Clone o repositório**:
+    ```bash
+    git clone https://github.com/daudossolorran/cauculadora-freelancer.git
+    ```
+2.  **Navegue até o diretório do projeto**:
+    ```bash
+    cd cauculadora-freelancer
+    ```
+3.  **Abra o arquivo `index.html`** no seu navegador preferido.
 
-| Tecnologia | Uso |
-|---|---|
-| HTML5 semântico | Estrutura da página (`header`, `main`, `section`) |
-| CSS3 | Layout com Flexbox e Grid, variáveis CSS, responsividade |
-| JavaScript puro | Lógica de cálculo, manipulação do DOM, localStorage |
+## Contribuição
 
----
+Contribuições são bem-vindas! Se você tiver sugestões de melhoria ou encontrar algum bug, sinta-se à vontade para abrir uma *issue* ou enviar um *pull request*.
 
-## Conceitos de JavaScript aplicados
+## Licença
 
-- **DOM** — `getElementById`, `textContent`, `createElement`, `appendChild`
-- **Arrays** — `push()` para adicionar, `filter()` para remover, `reduce()` para somar
-- **Funções** — funções reutilizáveis, validação de inputs com `isNaN()`
-- **Objetos** — `{ id, nome, valor }` para representar cada custo extra
-- **Intl.NumberFormat** — formatação de moeda no padrão brasileiro
-- **localStorage** — persistência dos dados entre sessões
-- **Eventos** — `addEventListener` para capturar cliques e tecla Enter
-
----
-
-## Como rodar localmente
-```bash
-# 1. Clone o repositório
- https://daudossolorran.github.io/cauculadora-freelancer/
-
-## Estrutura do projeto
-alculadora-orcamento/
-├── index.html       # Estrutura HTML semântica
-├── style.css        # Estilos e layout responsivo
-├── script.js        # Lógica JavaScript
-└── README.md
-
----
-
-## Próximos passos
-
-- [ ] Exportar orçamento em PDF
-- [ ] Histórico dos últimos orçamentos
-- [ ] Campo de prazo de entrega
-- [ ] Versão com React
-
----
-
-## Sobre o projeto
-
-Desenvolvido como parte do meu portfólio de estudos em **Análise e Desenvolvimento de Sistemas**.
-O objetivo foi construir algo que resolve um problema real — inclusive um que eu mesmo enfrento
-como estudante que ainda não sabe exatamente quanto cobrar pelo seu trabalho.
-
----
-
-Desenvolvido por **[Lorran Daudosso](#)** · [https://www.linkedin.com/in/lorran-daudosso/](#) · [https://github.com/daudossolorran](#)
+Este projeto está licenciado sob a licença MIT. Veja o arquivo [LICENSE](LICENSE ) para mais detalhes.
